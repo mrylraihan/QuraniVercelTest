@@ -13,7 +13,7 @@ function QuranTest({ data, setData, handlePlay }) {
 
 	console.log(data)
 	return (
-		<div onClick={getQuote}>
+		<div onClick={getQuote} className='rounded-xl shadow-md'>
 			{
 				<div>
 					<h2 className='text-2xl font-bold text-red-300 text-opacity-50'>
@@ -31,8 +31,6 @@ function QuranTest({ data, setData, handlePlay }) {
 					</h3>
 				</div>
 			}
-
-			{/* <button onClick={getQuote}>Click me</button> */}
 		</div>
 	)
 }
