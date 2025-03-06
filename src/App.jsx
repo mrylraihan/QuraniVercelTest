@@ -31,7 +31,7 @@ function App() {
 			</audio>
 			<QuranTest data={data} setData={setData} handlePlay={handlePlay} />
 			<div className='background-container'>
-				<img src='/public/mosque1.jpg' alt='' className='background-image' />
+				<img src='/src/imgs/mosque1.jpg' alt='' className='background-image' />
 			</div>
 		</>
 	)
