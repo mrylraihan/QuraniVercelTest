@@ -1,4 +1,4 @@
-import React, { useState, useEffect, forwardRef } from 'react'
+import { useState, useEffect, forwardRef } from 'react'
 
 const AudioPlayer = forwardRef((props, ref)=>{
   const [isPlaying, setIsPlaying] = useState(false);
@@ -45,21 +45,21 @@ const AudioPlayer = forwardRef((props, ref)=>{
   return (
 		<div className='flex flex-col items-center space-y-3 p-3'>
 			<audio ref={ref} src='https://server8.mp3quran.net/afs/075.mp3' />
-			<div className='flex items-center space-x-4'>
+			<div className='flex items-center space-x-2'>
 				<button
 					onClick={togglePlayPause}
-					className='px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 focus:outline-none'>
+					className='px-4 py-2 bg-red-300 text-white rounded hover:bg-red-300 focus:outline-none'>
 					{isPlaying ? '⏸️' : '▶️'}
 				</button>
 				<button
 					onClick={stopAudio}
-					className='px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 focus:outline-none'>
+					className='px-4 py-2 bg-red-300 text-white rounded hover:bg-red-300 focus:outline-none'>
 					⏹️
 				</button>
 			</div>
-			<div className='w-full bg-gray-200 rounded-full h-2'>
+			<div className='w-2xs bg-gray-200 rounded-full h-2'>
 				<div
-					className='bg-red-500 h-2 rounded-full'
+					className='bg-red-300 h-2 rounded-full'
 					style={{ width: `${progress}%` }}></div>
 			</div>
 			<input
@@ -68,7 +68,7 @@ const AudioPlayer = forwardRef((props, ref)=>{
 				max='1'
 				step='0.01'
 				onChange={(e) => (ref.current.volume = e.target.value)}
-				className='w-24'
+				className='w-24 text-red-300'
 			/>
 		</div>
 	)
