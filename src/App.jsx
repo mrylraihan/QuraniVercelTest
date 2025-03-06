@@ -7,15 +7,19 @@ function App() {
 	const [data, setData] = useState({ surahName: '', english: [''] })
 	const audioRef = useRef(null)
 	const surahNumber = useSurahPicker()
-		useEffect(() => {
-			fetch(`https://quranapi.pages.dev/api/${surahNumber}.json`)
-				.then((res) => res.json())
-				.then((result) => setData(result))
-				.catch(console.error)
-		}, [])
-		 const handlePlay = () => {
-				audioRef.current.play()
-			}
+
+	const handlePlay = () => {
+		audioRef.current.play()
+	}
+	
+	useEffect(() => {
+		
+		fetch(`https://quranapi.pages.dev/api/${surahNumber}.json`)
+			.then((res) => res.json())
+			.then((result) => setData(result))
+			.then(()=>handlePlay())
+			.catch(console.error)
+	}, [])
 	return (
 		<>
 			<audio autoPlay ref={audioRef}>
@@ -26,6 +30,9 @@ function App() {
 				Your browser does not support the audio element.
 			</audio>
 			<QuranTest data={data} setData={setData} handlePlay={handlePlay} />
+			<div className='background-container'>
+				<img src='/public/mosque1.jpg' alt='' className='background-image' />
+			</div>
 		</>
 	)
 }
